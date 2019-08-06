@@ -1,2 +1,2 @@
 # license
-A tiny license manager package
+A tiny license tool package

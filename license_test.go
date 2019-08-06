@@ -21,7 +21,7 @@ func TestEncrypt(t *testing.T) {
 
 func TestParseInputFile(t *testing.T) {
 	Convey("test parse file", t, func() {
-		inputPath, _ := filepath.Abs("./test.txt")
+		inputPath, _ := filepath.Abs("./user.txt")
 		mapValue, _ := parseInputFileJSON(inputPath)
 		uid := (*mapValue)["UID"]
 		So(uid, ShouldEqual, "123")
@@ -30,7 +30,7 @@ func TestParseInputFile(t *testing.T) {
 
 func TestOutputLicenseFile(t *testing.T) {
 	Convey("test use encrypt", t, func() {
-		inputPath, _ := filepath.Abs("./test.txt")
+		inputPath, _ := filepath.Abs("./user.txt")
 		mapValue, _ := parseInputFileJSON(inputPath)
 
 		license := NewLicenseManger("123456789")
@@ -47,7 +47,7 @@ func TestCompare(t *testing.T) {
 		key, err := hex.DecodeString((*licenseMap)[LicKey])
 		So(err, ShouldBeNil)
 
-		inputPath, _ := filepath.Abs("./test.txt")
+		inputPath, _ := filepath.Abs("./user.txt")
 		fileMap, _ := parseInputFileJSON(inputPath)
 		generateByte := parseMapSort(fileMap)
 
